@@ -4,5 +4,7 @@ const app = express();
 
 require('./database');
 
+app.use(require('./routes/index.routes'))
+
 app.listen(3000);
 console.log('Servidor en puerto', 3000);
