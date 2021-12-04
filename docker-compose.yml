@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: exampleapp
+    container_name: notesapp
     restart: always
     build: .
     ports: 
@@ -10,7 +10,7 @@ services:
     volumes: 
       - .:/usr/src/app
   mongo:
-    container_name: mymongodatabase
+    container_name: mydatabase
     image: mongo
     ports: 
       - "27018:27017"
