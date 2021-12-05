@@ -1,10 +1,9 @@
-import passport from "passport";
-import { Strategy as LocalStrategy } from "passport-local";
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-import User from "../models/User";
+const User = require('../models/User');
 
-passport.use(
-  new LocalStrategy(
+passport.use(new LocalStrategy(
     {
       usernameField: "email",
     },
@@ -13,14 +12,14 @@ passport.use(
       const user = await User.findOne({ email: email });
 
       if (!user) {
-        return done(null, false, { message: "Not User found." });
+        return done(null, false, { message: "Usuario No Encontrado." });
       } else {
         // Match Password's User
         const match = await user.matchPassword(password);
         if (match) {
           return done(null, user);
         } else {
-          return done(null, false, { message: "Incorrect Password." });
+          return done(null, false, { message: "Contraseña Incorrecta." });
         }
       }
     }
