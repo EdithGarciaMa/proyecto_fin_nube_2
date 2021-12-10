@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
@@ -15,13 +15,12 @@ require('./config/passport');
 // settings
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs',exphbs({
-    defaultLayout: 'main',
-    layoutsDir: path.join(app.get('views'), 'layouts'),
-    partialsDir: path.join(app.get('views'), 'partials'),
-    extname: '.hbs',
-  })
-);
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  layoutsDir: path.join(app.get('views'), 'layouts'),
+  partialsDir: path.join(app.get('views'), 'partials'),
+  extname: '.hbs'
+}));
 app.set('view engine', '.hbs');
 
 // middlewares
@@ -29,12 +28,10 @@ app.set('view engine', '.hbs');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true
- //   store: MongoStore.create({ mongoUrl: config.MONGODB_URI }),
-  })
-);
+  secret: "secret",
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -56,13 +53,61 @@ app.use(require('./routes/users'));
 // static files
 app.use(express.static(path.join(__dirname, "public")));
 
-//app.use((req, res) => {
-//  res.render("404");
-//});
-
-//export default app;
-
 //server listening
 app.listen(app.get('port'), () => {
   console.log('Servidor en puerto', app.get('port'))
+}); */
+
+
+
+
+const express = require('express');
+const engine = require('ejs-mate');
+const path = require('path');
+const morgan = require('morgan');
+const passport = require('passport');
+const session = require('express-session');
+const flash = require('connect-flash');
+
+
+//Inicializaciones
+const app = express();
+require('./database');
+require('./config/passport');
+//require('./passport/local-auth');
+
+// Settings
+app.set('views', path.join(__dirname, 'views'))
+app.engine('ejs', engine);
+app.set('view engine', 'ejs');
+app.listen(3000);
+
+//Middlewears
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(session({
+  secret: 'misesionsecreta',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+  app.locals.signinMessage = req.flash('signinMessage');
+  app.locals.signupMessage = req.flash('signupMessage');
+  app.locals.user = req.user;
+  //console.log(app.locals)
+  next();
 });
+
+//Routes
+app.use('/', require('./routes/index'));
+app.use(require('./routes/notes'));
+
+// static files
+app.use(express.static(path.join(__dirname, "public")));
+
+//Incio de servidor 
+console.log('SERVIDOR EN PUERTO',3000);
