@@ -1,17 +1,19 @@
+<!-- NAVIGATION 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--bootstrap 5-->
+    !--bootstrap 5--
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--font awesome-->
+      -->
+    <!--font awesome--
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Login NodeJS</title>
 </head>
 <body>
-     <!-- NAVIGATION -->
+     !-- NAVIGATION --
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,7 +58,331 @@
     </div>
   
     
-    <!--js bootstrap 5-->
+    !--js bootstrap 5--
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+</html>
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!--Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!--CSS-->
+    <link rel="stylesheet" href="css/style.css" type="Text/css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <title>Pasteleria</title>
+</head>
+
+<body background="img/inicio.jpg">
+
+    <!--MENU-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar navbar-expand-lg navbar-dark bg-dark" href="#">
+            <img class="logo" src="img/logo.jpg" width="100px" alt="">
+        </a>
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#recomendaciones">Recomendaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categorias">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contactanos</a>
+                    </li>        
+                </ul>
+                <%if (user) { %> 
+                    <a class="btn btn-primary" href="/profile">Profile</a>
+                    <a class="btn btn-danger ms-lg-3" href="/logout">Salir</a>
+                <% } else { %>
+                  <a class="btn btn-primary" href="/signin">Ingresar</a>
+                  <a class="btn btn-danger ms-lg-3" href="/signup">Registrarse</a> 
+                <% } %>  
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+      <%if (signinMessage.length>0) {%>
+        <div class="alert alert-danger"><%= signinMessage %></div>
+      <% } %>
+      <%if (signupMessage.length>0) {%>
+        <div class="alert alert-danger"><%= signupMessage %></div>
+      <% } %>
+        
+      <%- body %>
+    </div>
+    <!--FIN MENU-->
+
+    <!--Nosotros-->
+    <section class="row w-100 py-0 bg-light " id="nosotros">
+        <div class="col-lg-6 py-5 "><img class="nosotros " src="img/calidad.jpg " width="660 " alt=" "></div>
+        <div class="col-lg-6 py-5 ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-10 offset-md-1 ">
+                        <h1>La mejor Calidad en Productos</h1>
+                        <h5 class="mt-4 mb-2 text-danger ">Nuestra Trayectoria de más de 50 años nos respalda. </h5>
+                        <div class="nosotros d-flex mt-5 ">
+                            <div class="iconbox me-4 ">
+                                <i class='bx bxl-trip-advisor'></i>
+                            </div>
+                            <div>
+                                <h5>Marcas</h5>
+                                <p>Contamos con los Mejores Provedores de Productos.</p>
+                            </div>
+                        </div>
+                        <div class="nosotros d-flex ">
+                            <div class="iconbox me-2 ">
+                                <i class='bx bx-hive'></i>
+                            </div>
+                            <div>
+                                <h5>Atencion al Cliente</h5>
+                                <p>Nuestros Clientes Siempre Quedan Satisfechos con Nuestros Productos y Precios.</p>
+                            </div>
+                        </div>
+                        <div class="nosotros d-flex ">
+                            <div class="iconbox me-2 ">
+                                <i class='bx bx-cycling'></i>
+                            </div>
+                            <div>
+                                <h5>Envios a Domicilio</h5>
+                                <p> Llevamos tu Pedido hasta tu hogar, en tiempo y forma.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--RECOMENDACIONES-->
+    <section id="recomendaciones" class="bg-ligth ">
+        <div class="container-fluid ">
+            <div class="row mb-5 ">
+                <div class="col-md-8 mx-auto text-center ">
+                    <h1 class="text-danger ">Recomendaciones</h1>
+                    <h5>La Mejor Calidad</h5>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-4 col-sm-4 ">
+                    <div class="proyecto ">
+                        <img src="img/mil_hojas.jpg " width="200 " alt=" ">
+                        <div class="overlay ">
+                            <div>
+                                <h2 class="text-white ">Pastel de Mil Hojas</h2>
+                                <h6 class="text-white ">Descripcion: Rebanadas de Pastel Seco ideal para un antojo.</h6>
+                                <h4 class="text-white ">Precio $50</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 ">
+                    <div class="proyecto ">
+                        <img src="img/rec_6 " width="200 " alt=" ">
+                        <div class="overlay ">
+                            <div>
+                                <h2 class="text-white ">Pastel de Chocolate</h2>
+                                <h6 class="text-white ">Descripcion: Rebanadas de Pastel de Chocolate ideal para un antojo..</h6>
+                                <h4 class="text-white ">Precio $40</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 ">
+                    <div class="proyecto ">
+                        <img src="img/rec_7.jpg" width="200 " alt=" ">
+                        <div class="overlay ">
+                            <div>
+                                <h2 class="text-white ">Variedad de Panes</h2>
+                                <h6 class="text-white ">Descripcion: Deliciosa bariedad de Panes Decorados con Frutas Frescas</h6>
+                                <h4 class="text-white ">Precio $35</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 ">
+                    <div class="proyecto ">
+                        <img src="img/rec_8.jpg " width="200 " alt=" ">
+                        <div class="overlay ">
+                            <div>
+                                <h2 class="text-white ">Pastelillos</h2>
+                                <h6 class="text-white ">Descripcion:Pastelillos de Chocolate y Fresa con Frutas Frescas.</h6>
+                                <h4 class="text-white ">Precio $60</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 ">
+                    <div class="proyecto ">
+                        <img src="img/rec_9.png " width="200 " alt=" ">
+                        <div class="overlay ">
+                            <div>
+                                <h2 class="text-white ">Pastel de Tres Chocolates</h2>
+                                <h6 class="text-white ">Descripcion: Rebanada de Pastel de Tres Chocolates Cubierto con Cocolate Derretido. </h6>
+                                <h4 class="text-white ">Precio $75</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 ">
+                    <div class="proyecto ">
+                        <img src="img/zarsamora.jpg" width="200 " alt=" ">
+                        <div class="overlay ">
+                            <div>
+                                <h2 class="text-white ">Pay de Zarzamora</h2>
+                                <h6 class="text-white ">Descripcion: Rebanada de Delicioso Pay de Queso con Jalea de Zarzamora. </h6>
+                                <h4 class="text-white ">Precio $82</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--CATEGORIAS-->
+    <section id="categorias">
+        <div class="container ">
+            <div class="row mb-5 ">
+                <div class="col-md-8 mx-auto text-xl-center ">
+                    <h1 class="text-danger ">Categorias</h1>
+                </div>
+            </div>
+            <div class="row g-4 ">
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="fiestas card-effect ">
+                        <div>
+
+                            <h5 class="mt-4 mb-2 text-info "> Pasteles</img>
+                            </h5>
+                            <hr>
+                            <ul class="list-unstyled mb-4 ">
+                                <li><i class='bx bxs-check-circle'></i></i>Chocolate</li>
+                                <li><i class='bx bxs-check-circle'></i>Limon</li>
+                                <li><i class='bx bxs-check-circle'></i>Tres Leches</li>
+                                <li><i class='bx bxs-check-circle'></i>Nuez</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="fiestas card-effect ">
+                        <h5 class="mt-4 mb-2 text-info ">Pay</h5>
+                        <hr>
+                        <ul class="list-unstyled mb-4 ">
+                            <li><i class='bx bxs-check-circle'></i>Pay de Queso</li>
+                            <li><i class='bx bxs-check-circle'></i>Pay de Limon</li>
+                            <li><i class='bx bxs-check-circle'></i>Pay de Zanahoria</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="fiestas card-effect ">
+                        <h5 class="mt-4 mb-2 text-info ">Gelatinas</h5>
+                        <hr>
+                        <ul class="list-unstyled mb-4 ">
+                            <li><i class='bx bxs-check-circle'></i></i>Frutas Variadas</li>
+                            <li><i class='bx bxs-check-circle'></i>Moras</li>
+                            <li><i class='bx bxs-check-circle'></i>Fresas</li>
+                            <li><i class='bx bxs-check-circle'></i>Frutos Rojos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="fiestas card-effect ">
+                        <h5 class="mt-4 mb-2 text-info ">Flan</h5>
+                        <hr>
+                        <ul class="list-unstyled mb-4 ">
+                            <li><i class='bx bxs-check-circle'></i></i>Vainilla</li>
+                            <li><i class='bx bxs-check-circle'></i>Pasti Flan</li>
+                            <li><i class='bx bxs-check-circle'></i>Chocolate</li>
+                            <li><i class='bx bxs-check-circle'></i>Fresa</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="fiestas card-effect ">
+                        <h5 class="mt-4 mb-2 text-info ">Panes</h5>
+                        <hr>
+                        <ul class="list-unstyled mb-4 ">
+                            <li><i class='bx bxs-check-circle'></i></i>Glaseados</li>
+                            <li><i class='bx bxs-check-circle'></i>Cuernitos Rellenos</li>
+                            <li><i class='bx bxs-check-circle'></i>Pay con Fresas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="fiestas card-effect ">
+                        <h5 class="mt-4 mb-2 text-info ">Pastelillos</h5>
+                        <hr>
+                        <ul class="list-unstyled mb-4 ">
+                            <li><i class='bx bxs-check-circle'></i></i>Chocolate</li>
+                            <li><i class='bx bxs-check-circle'></i>Fresa</li>
+                            <li><i class='bx bxs-check-circle'></i>Limon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contacto-->
+
+    <section class="row w-100 py-0 bg-light " id="contacto">
+        <div class="col-lg-6 py-5 "><img class="contacto " src="img/contacto.jpeg" height="100% " width="100% " alt=" "></div>
+        <div class="col-lg-6 py-5 ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-10 offset-md-1 ">
+                        <h1>Nuestros contactos</h1>
+                        <b><i class="bi bi-facebook "></i> Facebook </b>
+                        <p>Sweet Bite</p>
+                        <b><i class="bi bi-google "></i> Gmail</b>
+                        <p>sweetbite@gmail.com</p>
+                        <b> <i class="bi bi-whatsapp "></i> Whatsapp
+                        </b>
+                        <p>534-332-2431.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ " crossorigin="anonymous "></script>
+
+</body>
+
 </html>

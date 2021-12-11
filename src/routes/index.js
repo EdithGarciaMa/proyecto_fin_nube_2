@@ -60,7 +60,7 @@ router.get('/profile',isAuthenticated, (req, res, next) => {
 });
 
 router.get('/products',isAuthenticated, (req, res, next) => {
-  res.send('Pagina de Productos');
+  res.send('products');
 });
 
 
