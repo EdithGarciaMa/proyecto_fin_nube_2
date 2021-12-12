@@ -1,149 +1,85 @@
-<!-- NAVIGATION 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    !--bootstrap 5--
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      -->
-    <!--font awesome--
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <title>Login NodeJS</title>
-</head>
-<body>
-     !-- NAVIGATION --
-
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Login NodeJs</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">  
-            <%if (user) { %> 
-              <li class="nav-item">
-                <a class="nav-link" href="/profile">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">Salir</a>
-              </li>
-            <% } else { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/signin">Ingresar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">Registrate</a>
-            </li>  
-            <% } %>          
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-    
-    <div class="container">
-      <%if (signinMessage.length>0) {%>
-        <div class="alert alert-danger"><%= signinMessage %></div>
-      <% } %>
-      <%if (signupMessage.length>0) {%>
-        <div class="alert alert-danger"><%= signupMessage %></div>
-      <% } %>
-        
-      <%- body %>
-    </div>
-  
-    
-    !--js bootstrap 5--
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-</html>
--->
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  
     <!--font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <!--Boxicons-->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!--Iconos     <link rel="stylesheet" href="/css/main.css"> <link rel="stylesheet" href="/css/style.css"> -->  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!--CSS-->
     <link rel="stylesheet" href="css/style.css" type="Text/css">
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
-    <title>Pasteleria</title>
+    <title>sweet Bite</title>
 </head>
-
-<body background="img/inicio.jpg">
-
-    <!--MENU-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar navbar-expand-lg navbar-dark bg-dark" href="#">
-            <img class="logo" src="img/logo.jpg" width="100px" alt="">
-        </a>
+<body>
+     <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg py-1 sticky-top navbar-dark bg-dark">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#nosotros">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#recomendaciones">Recomendaciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#categorias">Categorias</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/products">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contactanos</a>
-                    </li>        
-                </ul>
-                <%if (user) { %> 
-                    <a class="btn btn-primary" href="/profile">Profile</a>
-                    <a class="btn btn-danger ms-lg-3" href="/logout">Salir</a>
-                <% } else { %>
-                  <a class="btn btn-primary" href="/signin">Ingresar</a>
-                  <a class="btn btn-danger ms-lg-3" href="/signup">Registrarse</a> 
-                <% } %>  
-            </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#recomendaciones">Recomendaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#categorias">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#productos">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contactanos</a>
+                </li>        
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <%if (user) { %> 
+                <a class="btn btn-primary" href="/profile">Profile</a>
+                <a class="btn btn-danger ms-lg-3" href="/logout">Salir</a>
+              <% } else { %>
+                <a class="btn btn-primary" href="/signin">Ingresar</a>
+                <a class="btn btn-danger ms-lg-3" href="/signup">Registrarse</a> 
+              <% } %>  
+            </ul>
+          </div>
         </div>
     </nav>
-
+      
     <div class="container">
-      <%if (signinMessage.length>0) {%>
-        <div class="alert alert-danger"><%= signinMessage %></div>
-      <% } %>
-      <%if (signupMessage.length>0) {%>
-        <div class="alert alert-danger"><%= signupMessage %></div>
-      <% } %>
-        
-      <%- body %>
+        <%if (signinMessage.length>0) {%>
+          <div class="alert alert-danger"><%= signinMessage %></div>
+        <% } %>
+        <%if (signupMessage.length>0) {%>
+          <div class="alert alert-danger"><%= signupMessage %></div>
+        <% } %>
+          
+        <%- body %>
     </div>
-    <!--FIN MENU-->
+
+ <!--INICIO-->
+    <div class="hero vh-100 d-flex align-items-center" id="inicio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mx-auto text-center">
+                    <h1 class="display-4 text-white">Sweet Bite</h1>
+                    <h4 class="text-white my-3">Nuestra Mision: Ofrecer productos de la mejor calidad y al menor precio del área, para satisfacer las necesidades y gustos de nuestros clientes y así poder
+                        ser mejores cada día. </h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Nosotros-->
     <section class="row w-100 py-0 bg-light " id="nosotros">
@@ -193,13 +129,13 @@
             <div class="row mb-5 ">
                 <div class="col-md-8 mx-auto text-center ">
                     <h1 class="text-danger ">Recomendaciones</h1>
-                    <h5>La Mejor Calidad</h5>
+                    <h5>Los Mejores Sabores</h5>
                 </div>
             </div>
             <div class="row ">
                 <div class="col-lg-4 col-sm-4 ">
                     <div class="proyecto ">
-                        <img src="img/mil_hojas.jpg " width="200 " alt=" ">
+                        <img src="img/mil_hojas.jpg " alt="Card image cap" style="height: 13.5rem;">
                         <div class="overlay ">
                             <div>
                                 <h2 class="text-white ">Pastel de Mil Hojas</h2>
@@ -211,7 +147,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 ">
                     <div class="proyecto ">
-                        <img src="img/rec_6 " width="200 " alt=" ">
+                        <img src="img/rec_6.jpg " alt="Card image cap" style="height: 13.5rem;">
                         <div class="overlay ">
                             <div>
                                 <h2 class="text-white ">Pastel de Chocolate</h2>
@@ -223,7 +159,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 ">
                     <div class="proyecto ">
-                        <img src="img/rec_7.jpg" width="200 " alt=" ">
+                        <img src="img/rec_7.jpg" alt="Card image cap" style="height: 13.5rem;">
                         <div class="overlay ">
                             <div>
                                 <h2 class="text-white ">Variedad de Panes</h2>
@@ -235,7 +171,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 ">
                     <div class="proyecto ">
-                        <img src="img/rec_8.jpg " width="200 " alt=" ">
+                        <img src="img/rec_8.jpg " alt="Card image cap" style="height: 13.5rem;">
                         <div class="overlay ">
                             <div>
                                 <h2 class="text-white ">Pastelillos</h2>
@@ -247,7 +183,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 ">
                     <div class="proyecto ">
-                        <img src="img/rec_9.png " width="200 " alt=" ">
+                        <img src="img/rec_9.png " alt="Card image cap" style="height: 13.5rem;">
                         <div class="overlay ">
                             <div>
                                 <h2 class="text-white ">Pastel de Tres Chocolates</h2>
@@ -259,7 +195,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 ">
                     <div class="proyecto ">
-                        <img src="img/zarsamora.jpg" width="200 " alt=" ">
+                        <img src="img/zarsamora.jpg" alt="Card image cap" style="height: 13.5rem;">
                         <div class="overlay ">
                             <div>
                                 <h2 class="text-white ">Pay de Zarzamora</h2>
@@ -270,7 +206,7 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </section> 
 
     <!--CATEGORIAS-->
     <section id="categorias">
@@ -352,6 +288,170 @@
                             <li><i class='bx bxs-check-circle'></i>Fresa</li>
                             <li><i class='bx bxs-check-circle'></i>Limon</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos">
+        <div class="container-fluid">
+            <div class="col-md-8 mx-auto text-xl-center ">
+                <h1 class="text-danger ">Productos</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/rec_4.jpg" alt="Card image cap" style="height: 13.5rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pastel de Limon</h5>
+                            <p class="card-text">Es un Pastel de Limon ideal para ocaciones especiales.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $350</b>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/rec_10.jpg" width="600" alt="Card image cap" style="height: 13.5rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pastel de Nuez</h5>
+                            <p class="card-text">Pastel de Nuez Decorado con Crema y Nueces Frescas.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $420 </b></li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/pay_queso_moras.jpg" alt="Card image cap" style="height: 15rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pay de Queso con Moras</h5>
+                            <p class="card-text"> Pay de Queso decorado con jalea de Moras.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $430 </b></li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/gelatina-frutos-rojos.jpg" alt="Card image cap" style="height: 15rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Gelatina de Frutos Rojos </h5>
+                            <p class="card-text">Gelatina de Frutos Rojos como, fresas y frambuesas.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $250 </b> 
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/rec_1.jpg" width="600" alt="Card image cap" style="height: 13.5rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pastel de Cafe</h5>
+                            <p class="card-text">Pastel de Cafe Decorado con Crema de Chocolate.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $380 </b></li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/rec_5.jpg" alt="Card image cap" style="height: 13.5rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pastel de Tres Leches</h5>
+                            <p class="card-text">Pastel de Tres Leches Decorado con Crema de Chantilli y Frutas Frescas.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $390 </b></li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/gelatina_durazno.png" alt="Card image cap" style="height: 13.5rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Gelatina de Durazno</h5>
+                            <p class="card-text">Gelatina de Durazno Decorada con Fresas Frescas.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $280 </b></li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/req_2.jpg" width="600" alt="Card image cap" style="height: 13.5rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pay de Queso </h5>
+                            <p class="card-text">Pay de Queso seco Decorado con Crema de Chantilli y Frutos Rojos.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <b style="color:#0400ff">Precio $380 </b></li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bag-plus-fill"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary">
+                            <i class="bi bi-bookmark-check-fill"></i> Apartar</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,25 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 
 router.get("/", (req, res) => {
-    res.render('index'); //me manda al archivo index.hbs
+    res.render('index'); //me manda al archivo index.ejs
 });
-
-/*router.get("/about", (req, res) => {
-    res.render('about'); //me manda al archivo about.hbs
-});
-
-module.exports = router; */
-
-
-
-
-//const express = require('express');
-//const router = express.Router();
-
-
-//router.get('/', (req, res, next) => {
-//  res.render('index');
-//});
 
 router.get('/signup', (req, res, next) => {
   res.render('signup');
@@ -48,13 +31,7 @@ router.get('/logout', (req, res, next) => {
   req.logout();
   res.redirect('/');
 });
-/*
-//todos las rutas debajo estaran dentro de la seguridad de las sessions
-router.use((req, res, next)=>{
-  isAuthenticated(req, res, next);
-  next();
-});
-*/
+
 router.get('/profile',isAuthenticated, (req, res, next) => {
   res.render('profile');
 });
@@ -73,18 +50,3 @@ function isAuthenticated(req, res, next) {
 
 module.exports = router;
 
-//router.get('/', (req,res) => {
-//    res.send('hello word')
-//});
-
-//module.exports = router;
-
-//aqui puse el nuevo codigo
-
-
-//const router = Router();
-
-//router.get("/", renderIndex);
-//router.get("/about", renderAbout);
-
-//export default router;

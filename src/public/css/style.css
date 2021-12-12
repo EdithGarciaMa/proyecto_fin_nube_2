@@ -87,7 +87,7 @@ section {
 }
 
 .hero {
-    background-image: url(../img/fon.jpg);
+    background-image: url(../img/inicio.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -102,6 +102,6 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(124, 78, 8, 0.8);
+    background-color: rgba(204, 51, 89, 0.8);
     z-index: -1;
 }
